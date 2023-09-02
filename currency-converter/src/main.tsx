@@ -16,12 +16,12 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: "/converter",
-        element: <Converter />,
+        index: true,
+        element: <CurrenciesList />,
       },
       {
-        path: "/currencies",
-        element: <CurrenciesList />,
+        path: "/converter",
+        element: <Converter />,
       },
     ],
   },

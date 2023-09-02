@@ -44,7 +44,7 @@ export default function CurrencyItem({
           setMainCurrency(secondaryCurrency);
           setSecondaryCurrency(mainCurrency);
         }}
-        className="text-sm text-gray-700 border-black border p-0.5"
+        className="text-sm text-gray-700 border-gray-500 border p-0.5 px-1"
       >
         switch
       </button>

@@ -4,7 +4,7 @@ export default function Root() {
   return (
     <div className="max-w-md mx-auto py-6">
       <nav className="flex gap-8">
-        <Link className="underline" to="/currencies">
+        <Link className="underline" to="/">
           Currencies
         </Link>
         <Link className="underline" to="/converter">
