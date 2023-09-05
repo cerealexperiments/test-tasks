@@ -7,6 +7,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Root from "./Root";
 import StartScreen from "./StartScreen";
 import Game from "./Game";
+import ProtectedRoute from "./ProtectedRoute";
+import StatsPage from "./Stats";
 
 const router = createBrowserRouter([
   {
@@ -19,11 +21,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/game",
-        element: <Game />,
+        element: (
+          <ProtectedRoute>
+            <Game />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/stats",
-        element: <div>Stats page</div>,
+        element: (
+          <ProtectedRoute>
+            <StatsPage/>
+          </ProtectedRoute>
+        ),
       },
     ],
   },
@@ -36,5 +46,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
     </QueryClientProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

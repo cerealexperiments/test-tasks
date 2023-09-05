@@ -12,7 +12,7 @@ export default function Root() {
         </Link>
       </nav>
       <Outlet />
-			<footer className="text-center pt-4">Some footer</footer>
+      <footer className="text-center pt-4">Some footer</footer>
     </div>
   );
 }

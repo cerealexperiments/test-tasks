@@ -6,7 +6,6 @@ type QuestionPageProps = {
 export default function QuestionPage({
   title,
   value,
-  answer,
 }: QuestionPageProps) {
   return (
     <div>
