@@ -29,15 +29,12 @@ export default function CurrencyItem({
       <span
         className={classNames(
           { "text-green-500": isPositiveChange },
-          { "text-red-500": !isPositiveChange },
+          { "text-red-500": !isPositiveChange }
         )}
       >
-        {" "}
-        (
         {value - previous > 0
           ? `+${(value - previous).toFixed(3)}`
           : `-${(value - previous).toFixed(3)}`}
-        )
       </span>
       <button
         onClick={() => {

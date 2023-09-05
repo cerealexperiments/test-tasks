@@ -5,12 +5,11 @@ import { useState } from "react";
 export default function CurrenciesList() {
   const [searchValue, setSearchValue] = useState("");
   const currenciesQuery = useCurrencies();
-  console.log(currenciesQuery.data);
   const currencies = currenciesQuery.data
     ? [...currenciesQuery.data].filter(
         (item) =>
           item.CharCode.includes(searchValue.toUpperCase()) ||
-          item.Name.toLowerCase().includes(searchValue.toLowerCase()),
+          item.Name.toLowerCase().includes(searchValue.toLowerCase())
       )
     : null;
   return (
@@ -22,7 +21,7 @@ export default function CurrenciesList() {
         type="text"
         placeholder="Search currencies"
       />
-      {currencies && (
+      {currencies ? (
         <div className="flex flex-col gap-2">
           {currencies.map((item) => (
             <CurrencyItem
@@ -32,7 +31,7 @@ export default function CurrenciesList() {
             />
           ))}
         </div>
-      )}
+      ): <p>loading currencies</p>}
     </div>
   );
 }
