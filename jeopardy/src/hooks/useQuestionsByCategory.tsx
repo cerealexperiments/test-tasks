@@ -4,8 +4,7 @@ import {useQuery} from "@tanstack/react-query";
 
 async function fetchQuestionsByCategory(categoryId: number) {
   const response =  await axios
-    .get(`https://jservice.io/api/clues?category=${categoryId}`, {
-    });
+    .get(`https://jservice.io/api/clues?category=${categoryId}`);
   const data: QuestionType[] = response.data
   return data
 }

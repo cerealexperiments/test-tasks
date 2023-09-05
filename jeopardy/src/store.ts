@@ -4,6 +4,9 @@ import { QuestionType } from "./types";
 type JeopardyState = {
   playerName: string;
   setPlayerName: (name: string) => void;
+  gameStarted: boolean;
+  startGame: () => void;
+  endGame: () => void;
   correctAnswers: QuestionType[],
   incorrectAnswers: QuestionType[],
   addAnswer: (answer: string, question: QuestionType) => void,
@@ -19,6 +22,9 @@ type JeopardyState = {
 
 export const useStore = create<JeopardyState>((set) => ({
   playerName: "",
+  gameStarted: false,
+  startGame: () => set(() => ({gameStarted: true})),
+  endGame: () => set(() => ({gameStarted: false})),
   correctAnswers: [],
   incorrectAnswers: [],
   addAnswer: (answer, question) => set((state) => {

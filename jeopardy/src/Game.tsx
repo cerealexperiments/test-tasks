@@ -5,6 +5,9 @@ import {useState} from "react";
 
 export default function Game() {
   const {
+    gameStarted,
+    endGame,
+    startGame,
     questionActivated,
     changePlayerScore,
     setQuestionActivated,
@@ -25,7 +28,7 @@ export default function Game() {
     addAnswer(answer, activeQuestion!);
     disableQuestion(activeQuestion!.id)
     setAnswer("")
-    if (activeQuestion?.answer === answer) {
+    if (activeQuestion?.answer.toLowerCase() === answer.toLowerCase()) {
       setMessage("correct!")
       changePlayerScore(activeQuestion!.value)
     } else {
@@ -38,12 +41,14 @@ export default function Game() {
       setAnswered(false);
     }, 2000);
   };
+  if(!gameStarted) {
+    return <button className="border border-gray-700 py-1 px-2  self-center" onClick={startGame}>Start game</button>
+  }
   if (questionActivated && activeQuestion)
     return (
       <div className="mt-6">
         <div>
           <p>{activeQuestion.question}</p>
-          <p>{activeQuestion.answer}</p>
           <input
             placeholder="Answer"
             value={answer}
@@ -72,9 +77,12 @@ export default function Game() {
       </div>
     );
   return (
-    <div className="flex flex-col border gap-2 justify-center flex-1">
-      {categories &&
-        categories.map((item, index) => <Category key={item.id} id={item.id} title={item.title} index={index} />)}
+    <div className="flex flex-col">
+      <div className="flex flex-col border gap-2 justify-center flex-1">
+        {categories &&
+          categories.map((item, index) => <Category key={item.id} id={item.id} title={item.title} index={index}/>)}
+      </div>
+      <button onClick={endGame} className="py-1 px-2 self-end border border-red-700 text-red-700 mt-6">End game</button>
     </div>
   );
 }
