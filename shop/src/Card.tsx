@@ -39,7 +39,7 @@ export default function Card({
   }, [clicked])
 
   return (
-    <div className="card">
+    <div className={`card ${sold ? "card--sold" : ""}`}>
       <img src={image} alt="card image" className="card__image" />
       <div className="card__content">
         <p className="card__title">{title}</p>

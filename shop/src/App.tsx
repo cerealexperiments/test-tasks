@@ -4,6 +4,7 @@ import pic1 from "../src/assets/pic1.jpg";
 import pic2 from "../src/assets/pic2.jpg";
 import pic3 from "../src/assets/pic3.jpg";
 import pic4 from "../src/assets/pic4.jpg";
+import Footer from "./Footer";
 
 type Picture = {
   image: string;
@@ -54,6 +55,7 @@ function App() {
           ))}
         </div>
       </div>
+        <Footer />
     </div>
   );
 }

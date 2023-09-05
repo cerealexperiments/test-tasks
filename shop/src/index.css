@@ -16,8 +16,16 @@ button {
   font-family: "Merriweather", serif;
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #F6F3F3;
+}
+
 .container {
-  max-width: 1240px;
+  max-width: 1212px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -69,6 +77,7 @@ button {
   border: 1px solid #e1e1e1;
   padding: 0 16px;
   font-size: 14px;
+  background: #F6F3F3;
 }
 .searchbar__button {
   max-width: 122px;
@@ -80,6 +89,10 @@ button {
   flex-direction: column;
   max-width: 280px;
   border: 1px solid #e1e1e1;
+}
+
+.card--sold {
+  opacity: 50%;
 }
 
 .card__image {
@@ -142,4 +155,37 @@ button {
 .pictures__list {
   display: flex;
   gap: 32px;
+}
+
+
+.footer-container {
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+  margin-top: auto;
+  background: #ECEAEA;
+}
+
+.info-container {
+  display: flex;
+  gap: 48px;
+}
+
+.info-element {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.info-element__icon {
+  width: 14px;
+  height: 14px;
+}
+
+.info-element__text {
+  color: #555555;
+  font-size: 14px;
 }
