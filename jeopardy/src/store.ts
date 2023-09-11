@@ -7,13 +7,11 @@ type JeopardyState = {
   gameStarted: boolean;
   startGame: () => void;
   endGame: () => void;
-  correctAnswers: QuestionType[],
-  incorrectAnswers: QuestionType[],
-  addAnswer: (answer: string, question: QuestionType) => void,
-  questionActivated: boolean;
+  correctAnswers: QuestionType[];
+  incorrectAnswers: QuestionType[];
+  addAnswer: (answer: string, question: QuestionType) => void;
   activeQuestion: QuestionType | null;
-  setQuestionActivated: (questionState: boolean) => void;
-  setActiveQuestion: (question: QuestionType) => void;
+  setActiveQuestion: (question: QuestionType | null) => void;
   playerScore: number;
   changePlayerScore: (value: number) => void;
   disabledQuestions: number[];
@@ -23,25 +21,23 @@ type JeopardyState = {
 export const useStore = create<JeopardyState>((set) => ({
   playerName: "",
   gameStarted: false,
-  startGame: () => set(() => ({gameStarted: true})),
-  endGame: () => set(() => ({gameStarted: false})),
+  startGame: () => set(() => ({ gameStarted: true })),
+  endGame: () => set(() => ({ gameStarted: false })),
   correctAnswers: [],
   incorrectAnswers: [],
-  addAnswer: (answer, question) => set((state) => {
-    if(answer === question.answer) {
-      return {
-        correctAnswers: [...state.correctAnswers, question]
+  addAnswer: (answer, question) =>
+    set((state) => {
+      if (answer === question.answer) {
+        return {
+          correctAnswers: [...state.correctAnswers, question],
+        };
       }
-    }
-    return {
-      incorrectAnswers: [...state.incorrectAnswers, question]
-    }
-  }),
+      return {
+        incorrectAnswers: [...state.incorrectAnswers, question],
+      };
+    }),
   setPlayerName: (name) => set(() => ({ playerName: name })),
-  questionActivated: false,
   activeQuestion: null,
-  setQuestionActivated: (questionState) =>
-    set(() => ({ questionActivated: questionState })),
   setActiveQuestion: (question) => set(() => ({ activeQuestion: question })),
   playerScore: 0,
   changePlayerScore: (value) =>
